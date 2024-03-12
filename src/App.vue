@@ -1,34 +1,39 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import FooterView from './views/FooterView.vue'
+
+const callToAction = () => {
+  console.log('calling to action');
+}
+
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
+    <RouterLink to="/"><img alt="NRDev logo" class="logo" src="@/assets/nrdev-logo.svg" width="125px"/></RouterLink>
+    <nav>
+      <RouterLink to="/services">Services</RouterLink>
+      <RouterLink to="/blog">Blog</RouterLink>
+      <button v-on:click="callToAction()">Get in touch</button>
+    </nav>
   </header>
 
   <RouterView />
+  <FooterView />
 </template>
 
 <style scoped>
 header {
+  display: block;
   line-height: 1.5;
   max-height: 100vh;
+  width: 100%;
+  background-color: #2BA48D;
 }
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
 }
 
 nav {
@@ -64,7 +69,7 @@ nav a:first-of-type {
   }
 
   .logo {
-    margin: 0 2rem 0 0;
+    margin: 0;
   }
 
   header .wrapper {
